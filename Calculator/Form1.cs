@@ -23,8 +23,8 @@ namespace Calculator
 
         //Variables
         string input = string.Empty; //string to store user input
-        string opperand1 = string.Empty; //string to store first opperand
-        string opperand2 = string.Empty; //string to store second opperand
+        string opperand1 = string.Empty; //string to store first value
+        string opperand2 = string.Empty; //string to store second value
         char operation; //to store chosen operation
         decimal result = 0; //calculated result
 
@@ -156,6 +156,14 @@ namespace Calculator
             this.opperand2 = string.Empty;
         }
 
+        //Allow user to delete values
+        private void Btn_Backspace_Click(object sender, EventArgs e)
+        {
+            this.txt_01.Text = "";
+            input = input.Remove(input.Length - 1, 1);
+            this.txt_01.Text = input;
+        }
+
         private void Btn_Equals_Click(object sender, EventArgs e)
         {
             //MessageBox.Show("hi gina");
@@ -194,5 +202,6 @@ namespace Calculator
 
             }
         }
+
     }
 }

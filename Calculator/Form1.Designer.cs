@@ -46,6 +46,7 @@
             this.btn_subtract = new System.Windows.Forms.Button();
             this.btn_add = new System.Windows.Forms.Button();
             this.btn_equals = new System.Windows.Forms.Button();
+            this.backspace = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_seven
@@ -260,12 +261,25 @@
             this.btn_equals.UseVisualStyleBackColor = false;
             this.btn_equals.Click += new System.EventHandler(this.Btn_Equals_Click);
             // 
+            // backspace
+            // 
+            this.backspace.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.backspace.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.backspace.Location = new System.Drawing.Point(356, 266);
+            this.backspace.Name = "backspace";
+            this.backspace.Size = new System.Drawing.Size(95, 48);
+            this.backspace.TabIndex = 17;
+            this.backspace.Text = "<=";
+            this.backspace.UseVisualStyleBackColor = false;
+            this.backspace.Click += new System.EventHandler(this.Btn_Backspace_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSlateGray;
             this.ClientSize = new System.Drawing.Size(488, 336);
+            this.Controls.Add(this.backspace);
             this.Controls.Add(this.btn_equals);
             this.Controls.Add(this.btn_add);
             this.Controls.Add(this.btn_subtract);
@@ -311,6 +325,7 @@
         private System.Windows.Forms.Button btn_subtract;
         private System.Windows.Forms.Button btn_add;
         private System.Windows.Forms.Button btn_equals;
+        private System.Windows.Forms.Button backspace;
     }
 }
 
