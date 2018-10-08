@@ -26,7 +26,7 @@ namespace Calculator
         string opperand1 = string.Empty; //string to store first opperand
         string opperand2 = string.Empty; //string to store second opperand
         char operation; //to store chosen operation
-        double result = 0.0; //calculated result
+        decimal result = 0; //calculated result
 
 
         public Form1()
@@ -105,9 +105,19 @@ namespace Calculator
         
         private void Btn_Period_Click(object sender, EventArgs e)
         {
-            this.txt_01.Text = ""; //clear text box
-            input += ".";  //add . to existing value entered by user
-            this.txt_01.Text += input; //adds value to text field to display to user
+            //check if period button has been pressed before, if so don't allow a second time
+            if (input.Contains("."))
+            {
+                this.txt_01.Text = input;
+            }
+
+            else
+            {
+                this.txt_01.Text = ""; //clear text box
+                input += ".";  //add . to existing value entered by user
+                this.txt_01.Text += input; //adds value to text field to display to user
+            }
+                        
         }
 
         private void Btn_Divide_Click(object sender, EventArgs e)
@@ -151,31 +161,31 @@ namespace Calculator
             //MessageBox.Show("hi gina");
             opperand2 = input;  //save second value
             this.input = string.Empty; //clear value from input for next use
-            double num1, num2;  //variables to hold values for computations
-            double.TryParse(opperand1, out num1); //move values 
-            double.TryParse(opperand2, out num2); //move values
+            decimal num1, num2;  //variables to hold values for computations
+            decimal.TryParse(opperand1, out num1); //move values 
+            decimal.TryParse(opperand2, out num2); //move values
             
             if (operation == '+')  //add values together
             {
                 result = num1 + num2;
-                txt_01.Text = result.ToString("N0");  //display with commas
+                txt_01.Text = result.ToString("#,###.################################");  //display with commas
             }   
             else if (operation == '-') //subtract 1st value from 2nd
             {
                 result = num1 - num2;
-                txt_01.Text = result.ToString("N0"); //display value with commas
+                txt_01.Text = result.ToString("#,###.################################"); //display value with commas
             }
             else if (operation == '*') //mulitply values together
             {
                 result = num1 * num2;
-                txt_01.Text = result.ToString("N0");
+                txt_01.Text = result.ToString("#,###.################################");
             }
             else if (operation == '/') //divide 1st value into second value
             {
                 if (num2 != 0) //make sure second value isn't 0
                 {
                     result = num1 / num2;
-                    txt_01.Text = result.ToString("N0");
+                    txt_01.Text = result.ToString("#,###.################################");
                 }
                 else  //if value is 0 display error message
                 {
