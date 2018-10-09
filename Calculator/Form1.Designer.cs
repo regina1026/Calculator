@@ -47,6 +47,8 @@
             this.btn_add = new System.Windows.Forms.Button();
             this.btn_equals = new System.Windows.Forms.Button();
             this.backspace = new System.Windows.Forms.Button();
+            this.BtnDollarsToEuros = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn_seven
@@ -273,12 +275,39 @@
             this.backspace.UseVisualStyleBackColor = false;
             this.backspace.Click += new System.EventHandler(this.Btn_Backspace_Click);
             // 
+            // BtnDollarsToEuros
+            // 
+            this.BtnDollarsToEuros.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BtnDollarsToEuros.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnDollarsToEuros.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.BtnDollarsToEuros.Location = new System.Drawing.Point(457, 50);
+            this.BtnDollarsToEuros.Name = "BtnDollarsToEuros";
+            this.BtnDollarsToEuros.Size = new System.Drawing.Size(188, 48);
+            this.BtnDollarsToEuros.TabIndex = 18;
+            this.BtnDollarsToEuros.Text = "Dollars to Euros";
+            this.BtnDollarsToEuros.UseVisualStyleBackColor = false;
+            this.BtnDollarsToEuros.Click += new System.EventHandler(this.BtnDollarsToEuros_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.LightSlateGray;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.MidnightBlue;
+            this.label1.Location = new System.Drawing.Point(477, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(147, 29);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Conversions";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSlateGray;
-            this.ClientSize = new System.Drawing.Size(488, 336);
+            this.ClientSize = new System.Drawing.Size(657, 336);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.BtnDollarsToEuros);
             this.Controls.Add(this.backspace);
             this.Controls.Add(this.btn_equals);
             this.Controls.Add(this.btn_add);
@@ -326,6 +355,8 @@
         private System.Windows.Forms.Button btn_add;
         private System.Windows.Forms.Button btn_equals;
         private System.Windows.Forms.Button backspace;
+        private System.Windows.Forms.Button BtnDollarsToEuros;
+        private System.Windows.Forms.Label label1;
     }
 }
 

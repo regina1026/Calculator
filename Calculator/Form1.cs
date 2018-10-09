@@ -159,8 +159,16 @@ namespace Calculator
         //Allow user to delete values
         private void Btn_Backspace_Click(object sender, EventArgs e)
         {
-            this.txt_01.Text = "";
-            input = input.Remove(input.Length - 1, 1);
+            this.txt_01.Text = ""; //remove text from text field
+
+            //check if the input variable is null
+            if (input != "")  
+            {
+                //if it isn't remove the last character
+                input = input.Remove(input.Length - 1, 1);
+            }
+            
+            //display what is in input
             this.txt_01.Text = input;
         }
 
@@ -203,5 +211,10 @@ namespace Calculator
             }
         }
 
+        //Create conversion code to convert dollar amount to euro
+        private void BtnDollarsToEuros_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
