@@ -327,7 +327,9 @@
             this.Controls.Add(this.btn_four);
             this.Controls.Add(this.txt_01);
             this.Controls.Add(this.btn_seven);
+            this.Location = new System.Drawing.Point(23, 266);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gina\'s Calculator";
             this.ResumeLayout(false);
             this.PerformLayout();

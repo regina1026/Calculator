@@ -211,10 +211,14 @@ namespace Calculator
             }
         }
 
-        //Create conversion code to convert dollar amount to euro
+        //Open new window for dollars to euros conversion
         private void BtnDollarsToEuros_Click(object sender, EventArgs e)
         {
-
+            var newWindow = new EurosToDollarsForm();
+            newWindow.Location = this.Location;
+            this.Hide();
+            newWindow.Show();
+                        
         }
     }
 }
