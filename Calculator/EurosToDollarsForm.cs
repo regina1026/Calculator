@@ -116,36 +116,46 @@ namespace Calculator
             this.input = string.Empty;
         }
 
+        
+                   
         private void Btn_Equals_Click(object sender, EventArgs e) //get dollar to euro amount
         {
-            //get amounts from website
-            WebRequest request = WebRequest.Create("http://free.currencyconverterapi.com/api/v5/convert?q=USD_EUR&compact=y");
-            //save response
-            WebResponse response = request.GetResponse();
-            //put response into usable format
-            Stream dataStream = response.GetResponseStream();
+
             //variable for method
             string dataAmt = "";
-            //pull all data out of response from website
-            using (StreamReader responseReader = new StreamReader(dataStream))
-            {
-                //read the data
-                string json = responseReader.ReadToEnd();
-                //look for dollar to euro amount
-                string data = JObject.Parse(json)["USD_EUR"].ToString();
-                //save value from webiste to use in calculation
-                dataAmt = JObject.Parse(data)["val"].ToString();
 
+            try
+            {
+                //get amounts from website
+                WebRequest request = WebRequest.Create("http://free.currencyconverterapi.com/api/v5/convert?q=USD_EUR&compact=y");
+              
+                //Put website response into usable format
+                using (WebResponse response = request.GetResponse())
+                {
+                    Stream dataStream = response.GetResponseStream();
+                    StreamReader responseReader = new StreamReader(dataStream);
+                    //read the data
+                    string json = responseReader.ReadToEnd();
+                    //save value from webiste to use in calculation
+                    dataAmt = JObject.Parse(json)["USD_EUR"]["val"].ToString();
+                }                               
+                
+                //convert the amount returned into a number
+                double conversionAmt = Convert.ToDouble(dataAmt);
+                //convert user provided amount into a number
+                double dollarAmt = Convert.ToDouble(input);
+                //convert from euro to dollar
+                double euroAmt = conversionAmt * dollarAmt;
+                //display to user
+                this.TxtEuroAmt.Text = Convert.ToString(euroAmt);
             }
 
-            //convert the amount returned into a number
-            double conversionAmt = Convert.ToDouble(dataAmt);
-            //convert user provided amount into a number
-            double dollarAmt = Convert.ToDouble(input);
-            //convert from euro to dollar
-            double euroAmt = conversionAmt * dollarAmt;
-            //display to user
-            this.TxtEuroAmt.Text = Convert.ToString(euroAmt);
+            catch (Exception)
+            {
+
+                Console.WriteLine("An error occurred");
+            }
+            
                        
         }
 
@@ -166,10 +176,17 @@ namespace Calculator
 
         private void Btn_Close_Click(object sender, EventArgs e)
         {
-            var newWindow = new Form1();
-            newWindow.Location = this.Location;
+            //hide current form
             this.Hide();
-            newWindow.Show();
+
+            //show calculator form
+            using (var newWindow = new Form1())
+            {
+                newWindow.Location = this.Location;
+                newWindow.ShowDialog();
+            }
+            
+
         }
     }
 }

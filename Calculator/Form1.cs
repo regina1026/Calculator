@@ -200,11 +200,24 @@ namespace Calculator
         //Open new window for dollars to euros conversion
         private void BtnDollarsToEuros_Click(object sender, EventArgs e)
         {
-            var newWindow = new EurosToDollarsForm();
-            newWindow.Location = this.Location;
+            //hide current form
             this.Hide();
-            newWindow.Show();
-                        
+
+            //show euro to dollars form
+            using (var newWindow = new EurosToDollarsForm())
+
+            {
+                newWindow.Location = this.Location;
+                newWindow.ShowDialog();
+                
+            }
+
+            
+
+
+
+
+
         }
     }
 }
