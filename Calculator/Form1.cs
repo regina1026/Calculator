@@ -36,71 +36,61 @@ namespace Calculator
 
         private void Btn_Zero_Click(object sender, EventArgs e)
         {
-            this.txt_01.Text = ""; //clear text box of current value
             input += "0";  //add 0 to existing value entered by user
-            this.txt_01.Text += input; //adds new value to text field to display to user
+            this.txt_01.Text = input; //adds new value to text field to display to user
         }
 
         private void Btn_One_Click(object sender, EventArgs e)
         {
-            this.txt_01.Text = ""; //clear text box
             input += "1";  //add 1 to existing value entered by user
-            this.txt_01.Text += input; //adds value to text field to display to user
+            this.txt_01.Text = input; //adds value to text field to display to user
         }
         private void Btn_Two_Click(object sender, EventArgs e)
         {
-            this.txt_01.Text = ""; //clear text box
             input += "2";  //add 2 to existing value entered by user
-            this.txt_01.Text += input; //adds value to text field to display to user
+            this.txt_01.Text = input; //adds value to text field to display to user
         }
 
         private void Btn_Three_Click(object sender, EventArgs e)
         {
-            this.txt_01.Text = ""; //clear text box
             input += "3";  //add 3 to existing value entered by user
-            this.txt_01.Text += input; //adds value to text field to display to user
+            this.txt_01.Text = input; //adds value to text field to display to user
         }
 
         private void Btn_Four_Click(object sender, EventArgs e)
         {
-            this.txt_01.Text = ""; //clear text box
             input += "4";  //add 4 to existing value entered by user
-            this.txt_01.Text += input; //adds value to text field to display to user
+            this.txt_01.Text = input; //adds value to text field to display to user
         }
 
         private void Btn_Five_Click(object sender, EventArgs e)
         {
-            this.txt_01.Text = ""; //clear text box
             input += "5";  //add 5 to existing value entered by user
-            this.txt_01.Text += input; //adds value to text field to display to user
+            this.txt_01.Text = input; //adds value to text field to display to user
         }
 
         private void Btn_Six_Click(object sender, EventArgs e)
         {
-            this.txt_01.Text = ""; //clear text box
             input += "6";  //add 6 to existing value entered by user
-            this.txt_01.Text += input; //adds value to text field to display to user
+            this.txt_01.Text = input; //adds value to text field to display to user
         }
 
         private void Btn_Seven_Click(object sender, EventArgs e)
         {
-            this.txt_01.Text = ""; //clear text box
             input += "7";  //add 7 to existing value entered by user
-            this.txt_01.Text += input; //adds value to text field to display to user
+            this.txt_01.Text = input; //adds value to text field to display to user
         }
 
         private void Btn_Eight_Click(object sender, EventArgs e)
         {
-            this.txt_01.Text = ""; //clear text box
             input += "8";  //add 8 to existing value entered by user
-            this.txt_01.Text += input; //adds value to text field to display to user        
+            this.txt_01.Text = input; //adds value to text field to display to user        
         }
 
         private void Btn_Nine_Click(object sender, EventArgs e)
         {
-            this.txt_01.Text = ""; //clear text box
             input += "9";  //add 9 to existing value entered by user
-            this.txt_01.Text += input; //adds value to text field to display to user
+            this.txt_01.Text = input; //adds value to text field to display to user
         }
         
         private void Btn_Period_Click(object sender, EventArgs e)
@@ -113,9 +103,8 @@ namespace Calculator
 
             else
             {
-                this.txt_01.Text = ""; //clear text box
                 input += ".";  //add . to existing value entered by user
-                this.txt_01.Text += input; //adds value to text field to display to user
+                this.txt_01.Text = input; //adds value to text field to display to user
             }
                         
         }
@@ -159,8 +148,6 @@ namespace Calculator
         //Allow user to delete values
         private void Btn_Backspace_Click(object sender, EventArgs e)
         {
-            this.txt_01.Text = ""; //remove text from text field
-
             //check if the input variable is null
             if (input != "")  
             {
@@ -168,7 +155,7 @@ namespace Calculator
                 input = input.Remove(input.Length - 1, 1);
             }
             
-            //display what is in input
+            //display new value
             this.txt_01.Text = input;
         }
 
@@ -176,7 +163,6 @@ namespace Calculator
         {
             //MessageBox.Show("hi gina");
             opperand2 = input;  //save second value
-            this.input = string.Empty; //clear value from input for next use
             decimal num1, num2;  //variables to hold values for computations
             decimal.TryParse(opperand1, out num1); //move values 
             decimal.TryParse(opperand2, out num2); //move values

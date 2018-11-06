@@ -151,7 +151,17 @@ namespace Calculator
 
         private void Btn_Backspace_Click(object sender, EventArgs e)
         {
+            this.TxtDollarAmt.Text = ""; //remove text from text field
 
+            //check if the input variable is null
+            if (input != "")
+            {
+                //if it isn't remove the last character
+                input = input.Remove(input.Length - 1, 1);
+            }
+
+            //display what is in input
+            this.TxtDollarAmt.Text = input;
         }
 
         private void Btn_Close_Click(object sender, EventArgs e)
