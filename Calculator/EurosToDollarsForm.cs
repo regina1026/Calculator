@@ -25,72 +25,62 @@ namespace Calculator
 
         private void Btn_Zero_Click(object sender, EventArgs e)
         {
-            this.TxtDollarAmt.Text = ""; //clear text box of current value
             input += "0";  //add 0 to existing value entered by user
-            this.TxtDollarAmt.Text += input; //adds new value to text field to display to user
+            this.TxtDollarAmt.Text = input; //adds new value to text field to display to user
         }
 
         private void Btn_One_Click(object sender, EventArgs e)
         {
-            this.TxtDollarAmt.Text = ""; //clear text box of current value
             input += "1";  //add 1 to existing value entered by user
-            this.TxtDollarAmt.Text += input; //adds new value to text field to display to user
+            this.TxtDollarAmt.Text = input; //adds new value to text field to display to user
         }
 
         private void Btn_Two_Click(object sender, EventArgs e)
         {
-            this.TxtDollarAmt.Text = ""; //clear text box of current value
             input += "2";  //add 2 to existing value entered by user
-            this.TxtDollarAmt.Text += input; //adds new value to text field to display to user
+            this.TxtDollarAmt.Text = input; //adds new value to text field to display to user
         }
 
         private void Btn_Three_Click(object sender, EventArgs e)
         {
-            this.TxtDollarAmt.Text = ""; //clear text box of current value
             input += "3";  //add 3 to existing value entered by user
-            this.TxtDollarAmt.Text += input; //adds new value to text field to display to user
+            this.TxtDollarAmt.Text = input; //adds new value to text field to display to user
         }
 
         private void Btn_Four_Click(object sender, EventArgs e)
         {
-            this.TxtDollarAmt.Text = ""; //clear text box of current value
             input += "4";  //add 4 to existing value entered by user
-            this.TxtDollarAmt.Text += input; //adds new value to text field to display to user
+            this.TxtDollarAmt.Text = input; //adds new value to text field to display to user
         }
 
         private void Btn_Five_Click(object sender, EventArgs e)
         {
-            this.TxtDollarAmt.Text = ""; //clear text box of current value
             input += "5";  //add 5 to existing value entered by user
-            this.TxtDollarAmt.Text += input; //adds new value to text field to display to user
+            this.TxtDollarAmt.Text = input; //adds new value to text field to display to user
         }
 
         private void Btn_Six_Click(object sender, EventArgs e)
         {
-            this.TxtDollarAmt.Text = ""; //clear text box of current value
             input += "6";  //add 6 to existing value entered by user
-            this.TxtDollarAmt.Text += input; //adds new value to text field to display to user
+            this.TxtDollarAmt.Text = input; //adds new value to text field to display to user
         }
 
         private void Btn_Seven_Click(object sender, EventArgs e)
         {
-            this.TxtDollarAmt.Text = ""; //clear text box of current value
             input += "7";  //add 7 to existing value entered by user
-            this.TxtDollarAmt.Text += input; //adds new value to text field to display to user
+            this.TxtDollarAmt.Text = input; //adds new value to text field to display to user
         }
 
         private void Btn_Eight_Click(object sender, EventArgs e)
         {
-            this.TxtDollarAmt.Text = ""; //clear text box of current value
             input += "8";  //add 8 to existing value entered by user
-            this.TxtDollarAmt.Text += input; //adds new value to text field to display to user
+            this.TxtDollarAmt.Text = input; //adds new value to text field to display to user
         }
 
         private void Btn_Nine_Click(object sender, EventArgs e)
         {
-            this.TxtDollarAmt.Text = ""; //clear text box of current value
             input += "9";  //add 9 to existing value entered by user
-            this.TxtDollarAmt.Text += input; //adds new value to text field to display to user
+            this.TxtDollarAmt.Text = input; //adds new value to text field to display to user
         }
 
         private void Btn_Period_Click(object sender, EventArgs e)
@@ -103,9 +93,8 @@ namespace Calculator
 
             else
             {
-                this.TxtDollarAmt.Text = ""; //clear text box
                 input += ".";  //add . to existing value entered by user
-                this.TxtDollarAmt.Text += input; //adds value to text field to display to user
+                this.TxtDollarAmt.Text = input; //adds value to text field to display to user
             }
         }
 
