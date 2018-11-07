@@ -5,13 +5,6 @@
  */
 
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
@@ -25,7 +18,7 @@ namespace Calculator
         string input = string.Empty; //string to store user input
         string opperand1 = string.Empty; //string to store first value
         string opperand2 = string.Empty; //string to store second value
-        char operation; //to store chosen operation
+        string operation = string.Empty; //to store chosen operation
         decimal result = 0; //calculated result
 
 
@@ -111,30 +104,70 @@ namespace Calculator
 
         private void Btn_Divide_Click(object sender, EventArgs e)
         {
-            opperand1 = input;
-            operation = '/';
-            input = string.Empty;
+            //check if the operation value has already been saved
+            if (operation == string.Empty )
+            {
+                opperand1 = input;
+                operation = "/";
+                input = string.Empty;
+
+            }
+
+            //if a value is already selected display a message to the user
+            else
+            {
+                MessageBox.Show("Only one operation may be used at a time");
+            }
+
         }
 
         private void Btn_Multiply_Click(object sender, EventArgs e)
         {
-            opperand1 = input;
-            operation = '*';
-            input = string.Empty;
+            if (operation == string.Empty)
+            {
+                opperand1 = input;
+                operation = "*";
+                input = string.Empty;
+
+            }
+
+            else
+            {
+                MessageBox.Show("Only one operation may be used at a time");
+            }
+
         }
 
         private void Btn_Subtract_Click(object sender, EventArgs e)
         {
-            opperand1 = input;
-            operation = '-';
-            input = string.Empty;
+            if (operation == string.Empty)
+            {
+                opperand1 = input;
+                operation = "-";
+                input = string.Empty;
+
+            }
+
+            else
+            {
+                MessageBox.Show("Only one operation may be used at a time");
+            }
         }
 
         private void Btn_Add_Click(object sender, EventArgs e)
         {
-            opperand1 = input;
-            operation = '+';
-            input = string.Empty;
+            if (operation == string.Empty)
+            {
+                opperand1 = input;
+                operation = "+";
+                input = string.Empty;
+
+            }
+
+            else
+            {
+                MessageBox.Show("Only one operation may be used at a time");
+            }
         }
 
         private void Btn_Clear_Click(object sender, EventArgs e)
@@ -143,6 +176,8 @@ namespace Calculator
             this.input = string.Empty;
             this.opperand1 = string.Empty;
             this.opperand2 = string.Empty;
+            this.operation = string.Empty;
+            
         }
 
         //Allow user to delete values
@@ -163,26 +198,27 @@ namespace Calculator
         {
             //MessageBox.Show("hi gina");
             opperand2 = input;  //save second value
+            input = string.Empty; //clear input value
             decimal num1, num2;  //variables to hold values for computations
             decimal.TryParse(opperand1, out num1); //move values 
             decimal.TryParse(opperand2, out num2); //move values
             
-            if (operation == '+')  //add values together
+            if (operation == "+")  //add values together
             {
                 result = num1 + num2;
                 txt_01.Text = result.ToString("#,###.################################");  //display with commas
             }   
-            else if (operation == '-') //subtract 1st value from 2nd
+            else if (operation == "-") //subtract 1st value from 2nd
             {
                 result = num1 - num2;
                 txt_01.Text = result.ToString("#,###.################################"); //display value with commas
             }
-            else if (operation == '*') //mulitply values together
+            else if (operation == "*") //mulitply values together
             {
                 result = num1 * num2;
                 txt_01.Text = result.ToString("#,###.################################");
             }
-            else if (operation == '/') //divide 1st value into second value
+            else if (operation == "/") //divide 1st value into second value
             {
                 if (num2 != 0) //make sure second value isn't 0
                 {
@@ -193,8 +229,10 @@ namespace Calculator
                 {
                     txt_01.Text = "Invalid - Unable to Divide by 0!";
                 }
-
             }
+
+            operation = string.Empty;
+
         }
 
         //Open new window for dollars to euros conversion
@@ -211,12 +249,6 @@ namespace Calculator
                 newWindow.ShowDialog();
                 
             }
-
-            
-
-
-
-
 
         }
     }

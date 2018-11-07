@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Net;
 using System.IO;
 using System.Windows.Forms;
@@ -113,6 +106,9 @@ namespace Calculator
             //variable for method
             string dataAmt = "";
 
+            //Clear user entered amount
+            this.TxtDollarAmt.Text = "";
+            
             try
             {
                 //get amounts from website
@@ -137,6 +133,9 @@ namespace Calculator
                 double euroAmt = conversionAmt * dollarAmt;
                 //display to user
                 this.TxtEuroAmt.Text = Convert.ToString(euroAmt);
+
+                //clear input so previous value isn't displayed
+                this.input = string.Empty;
             }
 
             catch (Exception)
