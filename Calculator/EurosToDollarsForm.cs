@@ -164,7 +164,7 @@ namespace Calculator
 
         private void Btn_Close_Click(object sender, EventArgs e)
         {
-            //hide current form
+
             this.Hide();
 
             //show calculator form
@@ -173,8 +173,10 @@ namespace Calculator
                 newWindow.Location = this.Location;
                 newWindow.ShowDialog();
             }
-            
 
+            //once new form is open, close the old form
+            this.Close();
+            
         }
     }
 }
