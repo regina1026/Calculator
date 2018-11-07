@@ -149,8 +149,6 @@ namespace Calculator
 
         private void Btn_Backspace_Click(object sender, EventArgs e)
         {
-            this.TxtDollarAmt.Text = ""; //remove text from text field
-
             //check if the input variable is null
             if (input != "")
             {
