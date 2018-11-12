@@ -16,8 +16,8 @@ namespace Calculator
 
         //Variables
         string input = string.Empty; //string to store user input
-        string opperand1 = string.Empty; //string to store first value
-        string opperand2 = string.Empty; //string to store second value
+        string operand1 = string.Empty; //string to store first value
+        string operand2 = string.Empty; //string to store second value
         string operation = string.Empty; //to store chosen operation
         decimal result = 0; //calculated result
 
@@ -29,153 +29,87 @@ namespace Calculator
 
         private void Btn_Zero_Click(object sender, EventArgs e)
         {
-            input += "0";  //add 0 to existing value entered by user
-            this.txt_01.Text = input; //adds new value to text field to display to user
+            CreateValues("0");
         }
 
         private void Btn_One_Click(object sender, EventArgs e)
         {
-            input += "1";  //add 1 to existing value entered by user
-            this.txt_01.Text = input; //adds value to text field to display to user
+            CreateValues("1");
         }
         private void Btn_Two_Click(object sender, EventArgs e)
         {
-            input += "2";  //add 2 to existing value entered by user
-            this.txt_01.Text = input; //adds value to text field to display to user
+            CreateValues("2");
         }
 
         private void Btn_Three_Click(object sender, EventArgs e)
         {
-            input += "3";  //add 3 to existing value entered by user
-            this.txt_01.Text = input; //adds value to text field to display to user
+            CreateValues("3");
         }
 
         private void Btn_Four_Click(object sender, EventArgs e)
         {
-            input += "4";  //add 4 to existing value entered by user
-            this.txt_01.Text = input; //adds value to text field to display to user
+            CreateValues("4");
         }
 
         private void Btn_Five_Click(object sender, EventArgs e)
         {
-            input += "5";  //add 5 to existing value entered by user
-            this.txt_01.Text = input; //adds value to text field to display to user
+            CreateValues("5");
         }
 
         private void Btn_Six_Click(object sender, EventArgs e)
         {
-            input += "6";  //add 6 to existing value entered by user
-            this.txt_01.Text = input; //adds value to text field to display to user
+            CreateValues("6");
         }
 
         private void Btn_Seven_Click(object sender, EventArgs e)
         {
-            input += "7";  //add 7 to existing value entered by user
-            this.txt_01.Text = input; //adds value to text field to display to user
+            CreateValues("7");
         }
 
         private void Btn_Eight_Click(object sender, EventArgs e)
         {
-            input += "8";  //add 8 to existing value entered by user
-            this.txt_01.Text = input; //adds value to text field to display to user        
+            CreateValues("8");
         }
 
         private void Btn_Nine_Click(object sender, EventArgs e)
         {
-            input += "9";  //add 9 to existing value entered by user
-            this.txt_01.Text = input; //adds value to text field to display to user
+            CreateValues("9");
         }
         
         private void Btn_Period_Click(object sender, EventArgs e)
         {
-            //check if period button has been pressed before, if so don't allow a second time
-            if (input.Contains("."))
+            if(!this.txt_01.Text.Contains("."))
             {
-                this.txt_01.Text = input;
-            }
-
-            else
-            {
-                input += ".";  //add . to existing value entered by user
-                this.txt_01.Text = input; //adds value to text field to display to user
+                CreateValues(".");
             }
                         
         }
 
         private void Btn_Divide_Click(object sender, EventArgs e)
         {
-            //check if the operation value has already been saved
-            if (operation == string.Empty )
-            {
-                opperand1 = input;
-                operation = "/";
-                input = string.Empty;
-
-            }
-
-            //if a value is already selected display a message to the user
-            else
-            {
-                MessageBox.Show("Only one operation may be used at a time");
-            }
-
+            SetOperation("/");
         }
 
         private void Btn_Multiply_Click(object sender, EventArgs e)
         {
-            if (operation == string.Empty)
-            {
-                opperand1 = input;
-                operation = "*";
-                input = string.Empty;
-
-            }
-
-            else
-            {
-                MessageBox.Show("Only one operation may be used at a time");
-            }
-
+            SetOperation("*");
         }
 
         private void Btn_Subtract_Click(object sender, EventArgs e)
         {
-            if (operation == string.Empty)
-            {
-                opperand1 = input;
-                operation = "-";
-                input = string.Empty;
-
-            }
-
-            else
-            {
-                MessageBox.Show("Only one operation may be used at a time");
-            }
+            SetOperation("-");
         }
 
         private void Btn_Add_Click(object sender, EventArgs e)
         {
-            if (operation == string.Empty)
-            {
-                opperand1 = input;
-                operation = "+";
-                input = string.Empty;
-
-            }
-
-            else
-            {
-                MessageBox.Show("Only one operation may be used at a time");
-            }
-        }
+            SetOperation("+");
+        }   
 
         private void Btn_Clear_Click(object sender, EventArgs e)
         {
             this.txt_01.Text = "";
-            this.input = string.Empty;
-            this.opperand1 = string.Empty;
-            this.opperand2 = string.Empty;
+            this.operand1 = string.Empty;
+            this.operand2 = string.Empty;
             this.operation = string.Empty;
             
         }
@@ -184,24 +118,27 @@ namespace Calculator
         private void Btn_Backspace_Click(object sender, EventArgs e)
         {
             //check if the input variable is null
-            if (input != "")  
+            if (operand2 != string.Empty)  
             {
                 //if it isn't remove the last character
-                input = input.Remove(input.Length - 1, 1);
+                operand2 = operand2.Remove(operand2.Length - 1, 1);
+                this.txt_01.Text = operand2;
             }
-            
-            //display new value
-            this.txt_01.Text = input;
+
+            else if (operand1 != string.Empty)
+            {
+                operand1 = operand1.Remove(operand1.Length - 1, 1);
+                this.txt_01.Text = operand1;
+            }
+                        
         }
 
         private void Btn_Equals_Click(object sender, EventArgs e)
         {
             //MessageBox.Show("hi gina");
-            opperand2 = input;  //save second value
-            input = string.Empty; //clear input value
             decimal num1, num2;  //variables to hold values for computations
-            decimal.TryParse(opperand1, out num1); //move values 
-            decimal.TryParse(opperand2, out num2); //move values
+            decimal.TryParse(operand1, out num1); //move values 
+            decimal.TryParse(operand2, out num2); //move values
             
             if (operation == "+")  //add values together
             {
@@ -232,6 +169,8 @@ namespace Calculator
             }
 
             operation = string.Empty;
+            operand1 = string.Empty;
+            operand2 = string.Empty;
 
         }
 
@@ -243,7 +182,7 @@ namespace Calculator
 
             //show euro to dollars form
             using (var newWindow = new EurosToDollarsForm())
-                               
+
             {
                 newWindow.Location = this.Location;
                 newWindow.ShowDialog();
@@ -251,10 +190,31 @@ namespace Calculator
                 
             }
 
-            this.Close();
-
-
-
+            this.Show();
         }
+
+        private void CreateValues (string numeric)
+        {
+           if (operation == string.Empty) 
+            {
+                operand1 += numeric;
+                this.txt_01.Text = operand1;
+            }
+
+           else 
+            {
+                operand2 += numeric;
+                this.txt_01.Text = operand2;
+            }
+        }
+
+        private void SetOperation(string o)
+        {
+            if(operand1 != string.Empty)
+            {
+                operation = o;
+            }
+        }
+
     }
 }
